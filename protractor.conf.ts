@@ -1,9 +1,13 @@
 import { Config, browser, protractor } from "protractor";
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+// import {cucumber,cucumberOpts} from 'protractor-cucumber-framework';
 
 export let config: Config = {
     directConnect: true,
     framework: "jasmine2",
+    // framework:"custom",
+    // frameworkPath:require.resolve("protractor-cucumber-framework"),
+    // SELENIUM_PROMISE_MANAGER:false,
     allScriptsTimeout: 100000,
     // *************Run in Chrome************
     capabilities: {
@@ -27,14 +31,21 @@ export let config: Config = {
     //     'marionette':true,
     //     'acceptSslCerts':true,
     // },
-    specs: [
-        './test/specs/bankTest.js'
-    ],
-    // suites:{
-    //     functional: ['./test/specs/*.js'],
-    //     smoke: [],
-    //     sanity: [],
-    //     regression: []
+    // specs: [
+    //     './test/features/Sample.feature'
+    // ],
+    suites:{
+        functional: ['./test/specs/*.js'],
+        // smoke: [],
+        // sanity: [],
+        // regression: []
+    },
+
+    // cucumberOpts:{
+    //     require:[
+    //         '../outputjs/stepDefs/*.js',
+    //         // '../outputjs/confi/*.js'
+    //     ]
     // },
 
 
